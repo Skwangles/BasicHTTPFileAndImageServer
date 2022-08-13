@@ -20,7 +20,7 @@ class HttpServerRequest
 	if(isFirst){
 	    String[] parts = in.split(" ");
 	    //Parse slash
-	    if(!parts[0].equals("GET") || !(parts[1].startsWith("/") || parts[1].startsWith("favicon.ico")) || !parts[2].startsWith("HTTP/") || parts.length != 3) {done = true; return;}//badly formed - thus prevent from being parsed
+	    if(!parts[0].equals("GET") || !parts[1].startsWith("/") || !parts[2].startsWith("HTTP/") || parts.length != 3) {done = true; return;}//badly formed - thus prevent from being parsed
 	    //Deal with / for index.html
 		String filename = parts[1].substring(1);//Cut out inital /
 		if(filename.equals("") || filename.endsWith("/")) filename += "index.html";
